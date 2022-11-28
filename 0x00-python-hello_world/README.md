@@ -1,1 +1,1 @@
-# First steps in Pythn
+# First steps in Python
