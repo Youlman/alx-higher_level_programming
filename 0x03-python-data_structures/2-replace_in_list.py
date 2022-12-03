@@ -5,7 +5,7 @@ def replace_in_list(my_list, idx, element):
         Args:
             my_list: a list
             idx: the specific position
-            element: the element to insert 
+            element: the element to insert
         Returns:
             original list or new list
     """
