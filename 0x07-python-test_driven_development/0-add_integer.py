@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 """ Function that adds 2 integers. """
+
+
 def add_integer(a, b=98):
     """
         Addition of tw integers
@@ -11,8 +13,8 @@ def add_integer(a, b=98):
         the sum
     """
     if (isinstance(a, float) or isinstance(b, float)):
-            a = int(a)
-            b = int(b)
+        a = int(a)
+        b = int(b)
 
     if not isinstance(a, int):
         raise TypeError("a must be an integer")

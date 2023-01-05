@@ -4,8 +4,7 @@
 
 
 def matrix_divided(matrix, div):
-    """ Divides all elements of a matrix 
-        
+    """ Divides all elements of a matrix
         Args:
             matrix: matrix
             div: an float or integer
