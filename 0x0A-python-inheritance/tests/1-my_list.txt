@@ -1,0 +1,12 @@
+This module defines a class ``MyList`` an methods that print a sorted list  ``print_sorted()``.
+
+Usage
+=====
+``my_list.print_sorted()`` print a list in ascending sort.
+
+::
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = [1, 4, 2, 3, 5]
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
