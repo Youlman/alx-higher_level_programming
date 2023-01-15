@@ -85,7 +85,7 @@ class Rectangle(Base):
         if self.width == 0 or self.height == 0:
             print("")
             return
-            
+
         [print("") for _ in range(self.y)]
         for _ in range(self.height):
             [print(" ", end="") for _ in range(self.x)]
@@ -93,8 +93,8 @@ class Rectangle(Base):
                 print("#", end="")
             print("")
 
-    def update(self, *args):
-        """ Assigns an argument to each attribute 
+    def update(self, *args, **kwargs):
+        """ Assigns an argument to each attribute
             id, width, height, x, y in this order """
         if args and len(args) != 0:
             i = 0
@@ -113,7 +113,24 @@ class Rectangle(Base):
                 elif i == 4:
                     self.y = arg
                 i += 1
+        elif kwargs and len(kwargs) != 0:
+            for k, v in kwargs.items():
+                if k == "id":
+                    if v is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = v
+                elif k == "width":
+                    self.width = v
+                elif k == "height":
+                    self.height = v
+                elif k == "x":
+                    self.x = v
+                elif k == "y":
+                    self.y = v
 
     def __str__(self):
-        """ Return the print() and  str() representation of the Rectangle """ 
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+        """ Return the print() and  str() representation of the Rectangle """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x, self.y,
+                                                       self.width, self.height)
