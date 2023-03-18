@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" prints the first State object from the database """
+""" prints all States object contains letter 'a' from the database """
 
 import sys
 from model_state import State
@@ -13,8 +13,6 @@ if __name__ == "__main__":
                                    sys.argv[3]), pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    state = session.query(State).order_by(State.id).first()
-    if state is None:
-        print("Nothing")
-    else:
-        print("{}: {}".format(state.id, state.name))
+    for state in session.query(State).order_by(State.id):
+        if 'a' in state.name:
+            print("{}: {}".format(state.id, state.name))
