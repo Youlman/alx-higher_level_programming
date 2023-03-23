@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""script that lists all State objects, 
+"""script that lists all State objects,
 and corresponding City objects, contained in the database"""
 
 
@@ -16,8 +16,7 @@ if __name__ == "__main__":
                                    sys.argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
     session = sessionmaker(bind=engine)()
-    c = City(name="San Francisco")
-    s = State(name="California", cities=[c])
-    session.add(s)
-    session.add(c)
-    session.commit()
+    for state in session.query(State).order_by(State.id):
+        print("{}: {}".format(state.id, state.name))
+        for city in state.cities:
+            print("    {}: {}".format(city.id, city.name))
