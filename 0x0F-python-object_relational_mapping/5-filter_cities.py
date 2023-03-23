@@ -9,8 +9,8 @@ if __name__ == "__main__":
         passwd=sys.argv[2],                         
         db=sys.argv[3])
     cur = conn.cursor()
-    cur.execute("SELECT c.name FROM cities AS c \
-                        LEFT JOIN states AS s \
+    cur.execute("SELECT * FROM cities AS c \
+                        INNER JOIN states AS s \
                             ON c.state_id = s.id \
                         ORDER BY c.id;")
     print(",".join([row for row in cur.fetchall()
