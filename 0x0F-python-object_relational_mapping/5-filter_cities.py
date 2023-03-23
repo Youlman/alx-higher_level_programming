@@ -13,7 +13,7 @@ if __name__ == "__main__":
                         INNER JOIN states AS s \
                             ON c.state_id = s.id \
                         ORDER BY c.id;")
-    print(",".join([row for row in cur.fetchall()
+    print(", ".join([row[2] for row in cur.fetchall()
                     if row[4] == sys.argv[4]]))
     cur.close()
     conn.close()

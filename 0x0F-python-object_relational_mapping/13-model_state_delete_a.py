@@ -14,7 +14,7 @@ if __name__ == "__main__":
                                    sys.argv[3]), pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    for state in session.query(State):
-        if 'a' in state.name:
-            session.delete(state)
+    objs = session.query(State).filter(State.name.contains('a'))
+    for obj in objs:
+        session.delete(obj)
     session.commit()
