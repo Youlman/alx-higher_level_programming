@@ -8,5 +8,7 @@ import requests
 
 
 if __name__ == "__main__":
-    req = requests.get(sys.argv[1])
-    print(req.headers.post("X-Request-Id", data={"email": sys.argv[2]}))
+    url = sys.argv[1]
+    data = {"email": sys.argv[2]}
+    req = requests.post(url, data)
+    print(req.text)
