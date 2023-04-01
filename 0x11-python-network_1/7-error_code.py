@@ -8,4 +8,7 @@ import requests
 
 if __name__ == "__main__":
     req = requests.get(sys.argv[1])
-    print(type(req.status_code))
+    if (req.status_code >= 400):
+        print(req.status_code)
+    else:
+        print(req.text)
